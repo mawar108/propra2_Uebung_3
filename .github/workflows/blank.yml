@@ -1,0 +1,17 @@
+name: Test and Analyse
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        name: git checkout
+      - name: Java installieren
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: run gradle test
+        run: ./gradlew test
+      - name: run gradle check
+        run: ./gradlew check   
+   
